@@ -1,0 +1,65 @@
+package com.WebApps.Benchmark.Controller.API;
+
+import com.WebApps.Benchmark.DTO.ExplanationStats;
+import com.WebApps.Benchmark.DTO.RepairDTO;
+import com.WebApps.Benchmark.Service.RepairService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/repairs")
+public class RepairController {
+
+    private final RepairService repairService;
+    public RepairController(RepairService repairService) {
+        this.repairService = repairService;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<RepairDTO>> findAll(){
+        return ResponseEntity.ok(repairService.findAll());
+    }
+
+    @GetMapping("/{repair-a-line-of-code-id}")
+    public ResponseEntity<RepairDTO> getRepairALineOfCodeById(@PathVariable("repair-a-line-of-code-id") int id) {
+        return ResponseEntity.ok(repairService.findById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<RepairDTO> save(@RequestBody RepairDTO repairDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(repairService.save(repairDTO));
+    }
+
+    @PutMapping("/{repairId}/explanations/{explanationId}")
+    public ResponseEntity<RepairDTO> addExplanation(
+            @PathVariable int repairId,
+            @PathVariable int explanationId) {
+        return ResponseEntity.ok(repairService.addRepairExplanation(repairId, explanationId));
+    }
+
+    @DeleteMapping("/{repairId}/explanations/{explanationId}")
+    public ResponseEntity<RepairDTO> removeExplanation(
+            @PathVariable int repairId,
+            @PathVariable int explanationId) {
+        return ResponseEntity.ok(repairService.deleteRepairExplanation(repairId, explanationId));
+    }
+
+    @GetMapping("/search-by-explanations")
+    public ResponseEntity<List<RepairDTO>> getRepairsByExplanations(@RequestParam List<String> explanations) {
+        return ResponseEntity.ok(repairService.getRepairsByExplanations(explanations));
+    }
+
+    @GetMapping("/explanation-stats-validation")
+    public ResponseEntity<List<ExplanationStats>> getRepairExplanationStats() {
+        return ResponseEntity.ok(repairService.getRepairExplanationStats());
+    }
+
+    @GetMapping("/explanation-stats")
+    public ResponseEntity<List<ExplanationStats>> getRepairExplanationStatsWithoutValidation() {
+        return ResponseEntity.ok(repairService.getRepairExplanationStatsWithoutValidation());
+    }
+
+}
