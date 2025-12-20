@@ -1,9 +1,6 @@
-# web-breakages-taxonomy
+# A Taxonomy of Test Case Breakages and Repairs in the Web Application Domain
 
-## A Taxonomy of Test Case Breakages in the Web Application Domain
-
-This repository contains the infrastructure of the thesis project **"A Taxonomy of Test Case Breakages in the Web Application Domain"**.  
-It provides a **Spring Boot backend**, a **React frontend**, and a **MySQL database** that together form a web application for analyzing test case breakages in web applications.
+This repository contains the infrastructure of the project **"A Taxonomy of Test Case Breakages and Repairs in the Web Application Domain"**.   It provides a **Spring Boot backend**, a **React frontend**, and a **MySQL database** that together form a web application for analyzing test case breakages in web applications.
 
 ---
 
