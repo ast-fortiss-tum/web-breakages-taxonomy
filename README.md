@@ -1,6 +1,6 @@
-# A Taxonomy of Test Case Breakages and Repairs in the Web Application Domain
+# Understanding Breakages and Repairs in Programmable End-to-End Web Tests
 
-This repository contains the infrastructure of the project **"A Taxonomy of Test Case Breakages and Repairs in the Web Application Domain"**.   It provides a **Spring Boot backend**, a **React frontend**, and a **MySQL database** that together form a web application for analyzing test case breakages in web applications.
+This repository contains the infrastructure of the project **"Understanding Breakages and Repairs in Programmable End-to-End Web Tests"**. It provides a **Spring Boot backend**, a **React frontend**, and a **MySQL database** that together form a web application for analyzing test case breakages in web applications.
 
 ---
 
